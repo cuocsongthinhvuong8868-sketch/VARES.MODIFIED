@@ -161,7 +161,7 @@ if menu == "A. Phân tích Cổ phiếu Riêng lẻ":
                 ax.plot(p_var.index, p_var, color='red', linestyle='--', label='CF VaR 95%')
                 ax.plot(p_es.index, p_es, color='purple', label='Robust ES')
                 ax.fill_between(p_var.index, p_var, p_es, color='purple', alpha=0.1)
-                ax.set_title(f'Băng thông Rủi ro (Risk Band) {ticker}', fontweight='bold')
+                ax.set_title(f'Băng thông Cực Trị (Extreme Band) {ticker}', fontweight='bold')
                 ax.legend(loc='upper left')
                 ax.grid(alpha=0.3)
                 
@@ -360,4 +360,5 @@ elif menu == "C. Cảnh báo Định giá sai Rủi ro (Toàn thị trường)":
                 with open(pdf_file.name, "rb") as file:
 
                     st.download_button("Tải Báo Cáo Định Giá Rủi (PDF)", data=file, file_name="Mispricing_Risk_Report.pdf", mime="application/pdf")
+
 
