@@ -129,7 +129,7 @@ rangeselector_dict = dict(
 # MỤC A: CỔ PHIẾU RIÊNG LẺ
 # ------------------------------------------------------------------------------
 if menu == "A. Phân tích Cổ phiếu Riêng lẻ":
-    ticker = st.text_input("Nhập mã cổ phiếu (Kèm .VN):", "STB.VN").upper()
+    ticker = st.text_input("Nhập mã cổ phiếu (Kèm .VN):", "MBB.VN").upper()
     if st.button("Chạy Phân Tích"):
         with st.spinner(f"Đang xử lý dữ liệu cho {ticker}..."):
             df_price = fetch_data([ticker], data_start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d"))
@@ -360,3 +360,4 @@ elif menu == "C. Cảnh báo Định giá sai Rủi ro (Toàn thị trường)":
                 with open(pdf_file.name, "rb") as file:
 
                     st.download_button("Tải Báo Cáo Định Giá Rủi (PDF)", data=file, file_name="Mispricing_Risk_Report.pdf", mime="application/pdf")
+
