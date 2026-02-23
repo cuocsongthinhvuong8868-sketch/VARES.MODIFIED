@@ -151,7 +151,7 @@ if menu == "A. Phân tích Cổ phiếu Riêng lẻ":
                 fig_ply.add_trace(go.Scatter(x=p_std20.index, y=p_std20, mode='lines', name='-20d Stdev', line=dict(color='gray', width=1.5, dash='dot')))
                 fig_ply.add_trace(go.Scatter(x=p_var.index, y=p_var, mode='lines', name='CF VaR 95%', line=dict(color='red', dash='dash')))
                 fig_ply.add_trace(go.Scatter(x=p_es.index, y=p_es, mode='lines', name='Robust ES', line=dict(color='purple'), fill='tonexty', fillcolor='rgba(128, 0, 128, 0.15)'))
-                fig_ply.update_layout(title=f'Băng thông Rủi ro (Risk Band) {ticker}', template='plotly_white', hovermode='x unified', plot_bgcolor='white', paper_bgcolor='white', font=dict(color='black'))
+                fig_ply.update_layout(title=f'Băng thông Cực Trị (Extreme Band) {ticker}', template='plotly_white', hovermode='x unified', plot_bgcolor='white', paper_bgcolor='white', font=dict(color='black'))
                 fig_ply.update_xaxes(showgrid=True, gridwidth=1, gridcolor='LightGray', rangeselector=rangeselector_dict)
                 fig_ply.update_yaxes(showgrid=True, gridwidth=1, gridcolor='LightGray')
                 st.plotly_chart(fig_ply, use_container_width=True, theme=None)
@@ -360,5 +360,6 @@ elif menu == "C. Cảnh báo Định giá sai Rủi ro (Toàn thị trường)":
                 with open(pdf_file.name, "rb") as file:
 
                     st.download_button("Tải Báo Cáo Định Giá Rủi (PDF)", data=file, file_name="Mispricing_Risk_Report.pdf", mime="application/pdf")
+
 
 
