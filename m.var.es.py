@@ -267,8 +267,8 @@ elif menu == "C. Cảnh báo Định giá sai Rủi ro (Toàn thị trường)":
                 # Lấy Spread rủi ro cao nhất của nhóm Ngân Hàng làm chuẩn
                 bank_spread_benchmark = df_spread_plot[bank_tickers].max(axis=1)
                 
-                # Điều kiện 1: Nén rủi ro (Spread <= Bank_Max * 1.1)
-                is_spread_compressed = df_spread_plot[non_bank_tickers].lt(bank_spread_benchmark * 1.1, axis=0)
+                # Điều kiện 1: Nén rủi ro (Spread <= Bank_Max * 1.25)
+                is_spread_compressed = df_spread_plot[non_bank_tickers].lt(bank_spread_benchmark * 1.25, axis=0)
                 
                 # Điều kiện 2: Thị trường đẩy giá (Price > MA126) - Lọc bỏ pha tích lũy/chán nản
                 is_uptrend = df_price_plot[non_bank_tickers] > df_ma126_plot[non_bank_tickers]
@@ -358,4 +358,5 @@ elif menu == "C. Cảnh báo Định giá sai Rủi ro (Toàn thị trường)":
                     pdf.savefig(fig2, bbox_inches='tight') 
                     
                 with open(pdf_file.name, "rb") as file:
+
                     st.download_button("Tải Báo Cáo Định Giá Rủi (PDF)", data=file, file_name="Mispricing_Risk_Report.pdf", mime="application/pdf")
